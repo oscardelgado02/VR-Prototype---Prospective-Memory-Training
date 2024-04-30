@@ -1,26 +1,18 @@
-# VR-Unity-Template
- Unity Template to start developing a VR application.
+# VR Prototype - Prospective Memory Training
+ Virtual Reality prototype made in Unity to train prospective memory.
 
-<div align="center">
-<img src="https://github.com/oscardelgado02/oscardelgado02/blob/main/images/VR-Unity-Template-Preview.png" align="center" style="width: 80%" />
-</div>
-<br>
+ [Requirements Document](https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training/blob/main/Prospective%20Memory%20Training%20Requirements%20Document.pdf)
+ <br>
+ [UML Diagram](https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training/blob/main/Prospective%20Memory%20Training%20UML.png)
 
-## How to use
- You need to make sure you have the following packages installed with the Package Manager:
- - XR Interaction Toolkit
- - XR Plugin Management
+## License
 
-<div align="center">
-<img src="https://github.com/oscardelgado02/VR-Unity-Template/blob/main/_tutorialGit/1.png" align="center" style="width: 80%" />
-</div>
-<br>
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
- Once installed, you need to go to "Edit/Project Settings/XR Plug-in Management" and select the Plug-in Providers you are going to use (For example, in case you are using Oculus App, then select Oculus).
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training">VR Prototype - Prospective Memory Training</a> © 2024 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/oscardelgado02">Óscar Delgado Rueda</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
 
-<div align="center">
-<img src="https://github.com/oscardelgado02/VR-Unity-Template/blob/main/_tutorialGit/2.png" align="center" style="width: 80%" />
-</div>
-<br>
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
- Now, connect your VR headset to your PC (and open the software you need: Oculus App, SteamVR...) and start developing!
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
