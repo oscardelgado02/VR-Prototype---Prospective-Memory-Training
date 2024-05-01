@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings
+public sealed class Settings
 {
     private Settings() {}
 
@@ -19,7 +19,10 @@ public class Settings
         }
     }
 
-    // Attributes
+    // Debug Settings
     public bool xrDeviceSimulator = true;  //variable to test the game without a VR headset
+
+    // Settings
+    public bool enableDataExtraction = true;
     public int numOfTasksToDo = 3;
 }

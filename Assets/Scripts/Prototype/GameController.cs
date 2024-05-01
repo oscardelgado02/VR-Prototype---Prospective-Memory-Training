@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    // Attributes
     [SerializeField] private GameObject _xrDeviceSimulator;
+    private int currPhaseId = (int)phaseIds.learning;
+
+    // Methods
     private void Start()
     {
         // Enable/Disable XR Device Simulator
@@ -13,6 +17,11 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        
+        ManageGame();
+    }
+
+    private void ManageGame()
+    {
+
     }
 }
