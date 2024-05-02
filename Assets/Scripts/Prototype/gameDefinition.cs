@@ -76,4 +76,5 @@ public sealed class gameStatus
 
     // Attributtes
     public phaseIds currPhaseId = phaseIds.modifyingSettings;
+    public List<int> selectedTasksId = new List<int>();
 }

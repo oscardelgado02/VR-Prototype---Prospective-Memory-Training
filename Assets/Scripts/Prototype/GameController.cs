@@ -63,6 +63,9 @@ public class GameController : MonoBehaviour
         // We set the "toDo" attribute as true of the selected tasks
         foreach (int id in tasksToDoIds)
             TaskList.Instance.GetTask(id).toDo = true;
+
+        // We save the selected ids in the gameStatus singleton class
+        gameStatus.Instance.selectedTasksId = tasksToDoIds;
     }
 }
 

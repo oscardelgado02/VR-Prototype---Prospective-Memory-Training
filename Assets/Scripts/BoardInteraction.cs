@@ -25,7 +25,7 @@ public class BoardInteraction : MonoBehaviour
     // Methods
     private void Start()
     {
-        //We init the button functions
+        //We init the exit button function
         exitButton.onClick.AddListener(ExitGame);
     }
 

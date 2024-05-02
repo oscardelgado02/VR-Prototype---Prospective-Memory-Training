@@ -2828,6 +2828,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 401218021}
   content: {fileID: 1208822756}
+  settingsUI: {fileID: 1554105411}
+  numOfTasksSlider: {fileID: 16508014}
+  numOfTasksNumberText: {fileID: 212332138}
+  startExperienceButton: {fileID: 256146065}
+  taskListUI: {fileID: 581567034}
+  startButton: {fileID: 1333205422}
+  doingTasksUI: {fileID: 552821283}
+  finishButton: {fileID: 1298397679}
+  exitUI: {fileID: 428553394}
   exitButton: {fileID: 483589812}
   csvGeneratedText: {fileID: 2048002862}
   completed: {fileID: 21300000, guid: a2d614e2b05929447853da245decccf3, type: 3}
@@ -5059,7 +5068,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'These are the results of the test:'
+  m_text: 'These are the results of the experience:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
