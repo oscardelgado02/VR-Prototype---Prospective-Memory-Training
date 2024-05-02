@@ -23,7 +23,7 @@ public sealed class CSV_Export
 
     // Data Row Events definition
     [System.Serializable]
-    public class DataRowEvents
+    public class DataRowEvent
     {
         public string event_;
         public string phase;
@@ -33,7 +33,7 @@ public sealed class CSV_Export
         public string taskInList;
         public string time;
 
-        public DataRowEvents(int eventId, int phaseId, int taskId, float time)
+        public DataRowEvent(int eventId, int phaseId, int taskId, float time)
         {
             // Event data
             if (eventId < 0) { event_ = "NaN"; }
@@ -62,15 +62,22 @@ public sealed class CSV_Export
             // Time data
             this.time = time.ToString().Replace(',', '.');
         }
+
+        // Method to get the Data Row string
+        public string GetString() { return $"{event_},{phase},{taskId},{taskDescription},{taskState},{taskInList},{time}"; }
     }
 
     // Attributes
     private string fileDirectory;
     private int timer = -1;  // Timer ID
+    private List<DataRowEvent> events_data_rows;
 
     // Methods
     private void Init()
     {
+        // We init the DataRowEvents list
+        events_data_rows = new List<DataRowEvent>();
+
         // We init the folders and the filename where data will be stored
         InitFilenames();
 
@@ -102,4 +109,52 @@ public sealed class CSV_Export
 
         fileDirectory = Path.Combine(folder, $"{filename}.csv");
     }
+
+    // Method to add a line
+    private void AddEventLine(int eventId, int phaseId, int taskId)
+    {
+        events_data_rows.Add(new DataRowEvent(eventId, phaseId, taskId, Timers.Instance.GetTime(timer)));
+    }
+
+    // Method to add a line that shows the start of an event
+    public void WriteStartPhaseLine(phaseIds phaseId) { AddEventLine((int)eventIds.start, (int)phaseId, -1); }
+
+    // Method to add a line that shows the end of an event
+    public void WriteEndPhaseLine(phaseIds phaseId) { AddEventLine((int)eventIds.end, (int)phaseId, -1); }
+
+    // Method to add a line that shows if a task has been finished and all its information
+    public void WriteTaskFinishedLine(int taskId) { AddEventLine((int)eventIds.taskFinished, (int)phaseIds.doingTasks, taskId); }
+
+    // Method to generate the csv file
+    public void ExportCSV()
+    {
+        if (Settings.Instance.enableDataExtraction)
+        {
+            // We open the Text Writer
+            TextWriter tw = new StreamWriter(fileDirectory, false);
+
+            // We create the headers string
+            string headers = string.Empty;
+
+            foreach(string header in labels.Instance._csvHeaders)
+                headers += $"{header},";
+
+            headers = headers.Substring(0, headers.Length - 1);
+
+            // We write the headers in the first line
+            tw.WriteLine(headers);
+            tw.Close();
+
+            // We open the Text Writer again in append mode
+            tw = new StreamWriter(fileDirectory, true);
+
+            foreach (DataRowEvent _event in events_data_rows)
+                tw.WriteLine(_event.GetString());
+
+            tw.Close();
+        }
+    }
+
+    // Method to check if the csv file has been generated
+    public bool FileHasBeenGenerated() { return File.Exists(fileDirectory); }
 }

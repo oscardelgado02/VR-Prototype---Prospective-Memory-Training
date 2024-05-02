@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 // Enums definitions
 public enum phaseIds { learning, doingTasks, end };
-public enum eventIds { start, taskCompletion, end };
+public enum eventIds { start, taskFinished, end };
 
 // Labels definitions
 public sealed class labels
@@ -32,7 +32,7 @@ public sealed class labels
     public readonly List<string> _eventLabels = new List<string>()
     {
         "Start",
-        "Task Completion",
+        "Task Finished",
         "End"
     };
     public readonly List<string> _taskLabels = new List<string>()
@@ -43,5 +43,15 @@ public sealed class labels
         "Put the painting on the wall between the wardrobe and the bathroom door.",
         "Drink the coffee that is above the dishwasher",
         "Eat the lemon that is inside the fridge"
+    };
+    public readonly List<string> _csvHeaders = new List<string>()
+    {
+        "Event",
+        "Phase",
+        "Task ID",
+        "Task description",
+        "Task completed by the user",
+        "Task in list",
+        "Time"
     };
 }
