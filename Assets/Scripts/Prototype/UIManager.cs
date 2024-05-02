@@ -4,6 +4,8 @@ public class UIManager : MonoBehaviour
 {
     // Attributes
     [SerializeField] private GameObject UI;
+    [SerializeField] private GameObject exitButton;
+    [SerializeField] private GameObject csvGeneratedText;
 
     // Methods
     public void UpdateUI(phaseIds phaseId)
@@ -22,5 +24,28 @@ public class UIManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void Start()
+    {
+        // We init the UI
+        exitButton.SetActive(false);
+        csvGeneratedText.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // At the end, we check if the csv file has been generated to show the "Exit" button, this way we can close the
+        // app in a safe way without corrupting the data
+        if (Settings.Instance.enableDataExtraction)
+        {
+            if (CSV_Export.Instance.FileHasBeenGenerated())
+            {
+                csvGeneratedText.SetActive(true);
+                exitButton.SetActive(true);
+            }
+        }
+        else
+            exitButton.SetActive(true);
     }
 }
