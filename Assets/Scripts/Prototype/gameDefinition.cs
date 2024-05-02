@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 // Enums definitions
-public enum phaseIds { learning, doingTasks, end };
+public enum phaseIds { modifyingSettings, learning, doingTasks, end };
 public enum eventIds { start, taskFinished, end };
 
 // Labels definitions
@@ -25,6 +25,7 @@ public sealed class labels
     // Attributtes
     public readonly List<string> _phaseLabels = new List<string>()
     {
+        "Modifying Settings",
         "Learning",
         "Doing Tasks",
         "End"
@@ -54,4 +55,25 @@ public sealed class labels
         "Task in list",
         "Time"
     };
+}
+
+public sealed class gameStatus
+{
+    private gameStatus() { }
+
+    private static gameStatus instance;
+    public static gameStatus Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new gameStatus();
+            }
+            return instance;
+        }
+    }
+
+    // Attributtes
+    public phaseIds currPhaseId = phaseIds.modifyingSettings;
 }

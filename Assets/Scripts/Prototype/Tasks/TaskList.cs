@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Task
 {
@@ -53,4 +51,7 @@ public sealed class TaskList
 
     // Method to get a task
     public Task GetTask(int id) { return tasks[id]; }
+
+    // Method to get the total number of defined tasks
+    public int GetTotalNumOfTasks() { return tasks.Count; }
 }
