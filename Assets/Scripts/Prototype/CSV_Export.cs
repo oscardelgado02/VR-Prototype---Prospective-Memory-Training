@@ -67,7 +67,7 @@ public sealed class CSV_Export
     }
 
     // Attributes
-    private string fileDirectory;
+    public string fileDirectory { get; private set; }
     private int timer = -1;  // Timer ID
     private List<DataRowEvent> events_data_rows;
 

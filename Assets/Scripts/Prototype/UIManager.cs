@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -42,6 +43,7 @@ public class UIManager : MonoBehaviour
             if (CSV_Export.Instance.FileHasBeenGenerated())
             {
                 csvGeneratedText.SetActive(true);
+                csvGeneratedText.GetComponent<TextMeshPro>().text = $"CSV file in directory\n{CSV_Export.Instance.fileDirectory}\nhas been generated";
                 exitButton.SetActive(true);
             }
         }
