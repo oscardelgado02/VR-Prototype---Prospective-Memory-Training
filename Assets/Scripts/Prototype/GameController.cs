@@ -5,15 +5,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     // Attributes
-    [SerializeField] private GameObject _xrDeviceSimulator;
     [SerializeField] private UIManager _uiManager;
 
     // Methods
     private void Start()
     {
-        // Enable/Disable XR Device Simulator
-        _xrDeviceSimulator.SetActive(Settings.Instance.xrDeviceSimulator);
-
         // Write a line in the CSV Export system to indicate that the modifying settings phase started
         CSV_Export.Instance.WriteStartPhaseLine(gameStatus.Instance.currPhaseId);
     }
