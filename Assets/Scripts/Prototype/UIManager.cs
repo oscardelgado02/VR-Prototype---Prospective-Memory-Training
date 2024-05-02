@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     // Attributes
+    [Header("Game Controller")]
+    [Space(10)]
+    [SerializeField] private GameController gameController;
+
     [Header("UI")]
     [Space(10)]
 
@@ -140,15 +144,15 @@ public class UIManager : MonoBehaviour
     {
         // Button from the Settings UI
         startExperienceButton.onClick.RemoveAllListeners(); // We wipe the current listeners
-        startExperienceButton.onClick.AddListener(() => { UpdateUI(phaseIds.learning); });
+        startExperienceButton.onClick.AddListener(() => { gameController.StartNextPhase(phaseIds.learning); });
 
         // Button from the TaskList UI
         startButton.onClick.RemoveAllListeners(); // We wipe the current listeners
-        startButton.onClick.AddListener(() => { UpdateUI(phaseIds.doingTasks); });
+        startButton.onClick.AddListener(() => { gameController.StartNextPhase(phaseIds.doingTasks); });
 
         // Button from the DoingTasks UI
         finishButton.onClick.RemoveAllListeners(); // We wipe the current listeners
-        finishButton.onClick.AddListener(() => { UpdateUI(phaseIds.end); });
+        finishButton.onClick.AddListener(() => { gameController.StartNextPhase(phaseIds.end); });
     }
 
     private void WipeAndCreateUISkeleton(int margins = 50, float spacing = 30f)
