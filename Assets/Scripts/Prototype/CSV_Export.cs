@@ -40,7 +40,7 @@ public sealed class CSV_Export
 
             // Phase data
             if (phaseId < 0) { phase = "NaN"; }
-            else { phase = labels.Instance._eventLabels[phaseId]; }
+            else { phase = labels.Instance._phaseLabels[phaseId]; }
 
             // Task data
             if (taskId < 0)

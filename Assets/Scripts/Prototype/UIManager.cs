@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -40,8 +41,8 @@ public class UIManager : MonoBehaviour
     [Space(10)]
 
     [SerializeField] private GameObject exitUI;
-    [SerializeField] private GameObject exitButton;
     [SerializeField] private GameObject csvGeneratedText;
+    [SerializeField] private Button exitButton;
 
     [Header("Sprites")]
     [Space(10)]
@@ -92,7 +93,7 @@ public class UIManager : MonoBehaviour
         UpdateUI(gameStatus.Instance.currPhaseId);
 
         // We disable the Exit and CSV Generated Text button for later
-        exitButton.SetActive(false);
+        exitButton.gameObject.SetActive(false);
         csvGeneratedText.SetActive(false);
     }
 
@@ -125,12 +126,14 @@ public class UIManager : MonoBehaviour
 
     private void GiveFunctionalityToTheSlider()
     {
+        Settings.Instance.numOfTasksToDo = 1;   //Init value
+
         // Slider that modify the number of tasks to do
         numOfTasksSlider.onValueChanged.RemoveAllListeners();   // We wipe the current listeners
 
         numOfTasksSlider.maxValue = TaskList.Instance.GetTotalNumOfTasks();
         numOfTasksSlider.minValue = 1;
-        numOfTasksSlider.value = 1;
+        numOfTasksSlider.value = Settings.Instance.numOfTasksToDo;
         numOfTasksSlider.wholeNumbers = true;
 
         numOfTasksSlider.onValueChanged.AddListener((float value) =>
@@ -153,6 +156,9 @@ public class UIManager : MonoBehaviour
         // Button from the DoingTasks UI
         finishButton.onClick.RemoveAllListeners(); // We wipe the current listeners
         finishButton.onClick.AddListener(() => { gameController.StartNextPhase(phaseIds.end); });
+
+        // Button from the End UI
+        exitButton.onClick.AddListener(() => { Application.Quit(); });
     }
 
     private void WipeAndCreateUISkeleton(int margins = 50, float spacing = 30f)
@@ -253,7 +259,7 @@ public class UIManager : MonoBehaviour
                 {
                     csvGeneratedText.SetActive(true);
                     csvGeneratedText.GetComponent<TextMeshProUGUI>().text = $"{CSV_Export.Instance.fileDirectory} has been generated";
-                    exitButton.SetActive(true);
+                    exitButton.gameObject.SetActive(true);
 
                     exitButtonShown = true; // We set the control variable as true, as the exit button has been shown
                 }
@@ -261,7 +267,7 @@ public class UIManager : MonoBehaviour
             // In case it does not need to generate the file, just set it to active
             else
             {
-                exitButton.SetActive(true);
+                exitButton.gameObject.SetActive(true);
                 exitButtonShown = true; // We set the control variable as true, as the exit button has been shown
             }
         }

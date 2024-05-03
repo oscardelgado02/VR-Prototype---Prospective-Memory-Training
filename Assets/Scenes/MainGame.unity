@@ -2777,8 +2777,8 @@ MonoBehaviour:
   doingTasksUI: {fileID: 552821283}
   finishButton: {fileID: 1298397679}
   exitUI: {fileID: 428553394}
-  exitButton: {fileID: 483589812}
   csvGeneratedText: {fileID: 2048002862}
+  exitButton: {fileID: 483589813}
   completed: {fileID: 21300000, guid: a2d614e2b05929447853da245decccf3, type: 3}
   notCompleted: {fileID: 21300000, guid: f625c5bd2463add4a88d7ee32e33e4e7, type: 3}
   taskToDoTextPrefab: {fileID: 231111570806819918, guid: d1194697f933332468c25bee87d1d15b, type: 3}
@@ -2803,7 +2803,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32
   interactionDistance: 2.5
-  exitButton: {fileID: 483589813}
 --- !u!1 &950759183
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,21 +16,11 @@ public class BoardInteraction : MonoBehaviour
     [SerializeField] private LayerMask boardLayer; // Layer mask for the board
     [SerializeField] private float interactionDistance = 2.5f;
 
-    [SerializeField] private Button exitButton;
-
     //For button down
     private bool previousLeftTriggerState = false;
     private bool previousRightTriggerState = false;
 
     // Methods
-    private void Start()
-    {
-        //We init the exit button function
-        exitButton.onClick.AddListener(ExitGame);
-    }
-
-    public void ExitGame() { Application.Quit(); }
-
     private void Update()
     {
         HandleRaycast(controllerTransformLeft, lineRendererLeft);
