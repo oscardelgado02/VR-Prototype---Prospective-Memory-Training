@@ -29,18 +29,30 @@ public class BoardInteraction : MonoBehaviour
         bool leftTrigger;
         if (UnityEngine.XR.InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger))
         {
+            // On Trigger Down
             if (leftTrigger && !previousLeftTriggerState)
             {
                 TryInteractWithButton(controllerTransformLeft);
+            }
+            // Hold trigger
+            else if (leftTrigger)
+            {
+                TryInteractWithSlider(controllerTransformLeft);
             }
         }
 
         bool rightTrigger;
         if (UnityEngine.XR.InputDevices.GetDeviceAtXRNode(XRNode.RightHand).TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger))
         {
+            // On Trigger Down
             if (rightTrigger && !previousRightTriggerState)
             {
                 TryInteractWithButton(controllerTransformRight);
+            }
+            // Hold trigger
+            else if (rightTrigger)
+            {
+                TryInteractWithSlider(controllerTransformRight);
             }
         }
 
@@ -74,6 +86,29 @@ public class BoardInteraction : MonoBehaviour
             {
                 // Call the method to interact with the button
                 button.onClick.Invoke();
+            }
+        }
+    }
+
+    private void TryInteractWithSlider(Transform controllerTransform)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit, interactionDistance))
+        {
+            // Check if the hit component is a Slider
+            Slider slider = hit.collider.GetComponent<Slider>();
+            if (slider != null)
+            {
+                // Calculate the hit point's position relative to the slider's transform
+                Vector3 hitPointLocal = slider.transform.InverseTransformPoint(hit.point);
+                Debug.Log(hitPointLocal);
+
+                // Calculate the normalized value based on the hit point, considering the entire range of the slider
+                float sliderWidth = slider.gameObject.GetComponent<RectTransform>().rect.width;
+                float normalizedValue = Mathf.InverseLerp(-sliderWidth / 2, sliderWidth / 2, hitPointLocal.x);
+
+                // Set the slider value considering the entire range
+                slider.value = Mathf.Lerp(slider.minValue, slider.maxValue, normalizedValue);
             }
         }
     }
