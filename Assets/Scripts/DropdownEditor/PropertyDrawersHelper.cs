@@ -21,5 +21,10 @@ public static class PropertyDrawersHelper
         return labels.Instance._containerTags;
     }
 
+    public static string[] FoodTagList()
+    {
+        return labels.Instance._foodTags;
+    }
+
 #endif
 }

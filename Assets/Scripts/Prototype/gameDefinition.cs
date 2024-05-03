@@ -3,6 +3,8 @@ using System.Collections.Generic;
 // Enums definitions
 public enum phaseIds { modifyingSettings, learning, doingTasks, end };
 public enum eventIds { start, taskFinished, end };
+public enum containerIds { washingMachine, cupboard, wall }
+public enum foodIds { lemon, apple, watermelon, coffee}
 
 // Labels definitions
 public sealed class labels
@@ -45,7 +47,7 @@ public sealed class labels
         "Drink the coffee that is above the dishwasher",
         "Eat the lemon that is inside the fridge",
         "Eat the apple that is inside the fridge",
-        "Eat the melon that is inside the fridge"
+        "Eat the watermelon that is inside the fridge"
     };
     public readonly string[] _csvHeaders = new string[]
     {
@@ -68,6 +70,13 @@ public sealed class labels
         "Washing machine",
         "Cupboard",
         "Wall"
+    };
+    public readonly string[] _foodTags = new string[]
+    {
+        "Lemon",
+        "Apple",
+        "Watermelon",
+        "Coffee"
     };
 }
 

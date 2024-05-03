@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskId: 6
+  foodTag: Apple
 --- !u!33 &5456972080375136143
 MeshFilter:
   m_ObjectHideFlags: 0

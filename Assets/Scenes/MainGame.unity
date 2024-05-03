@@ -5885,7 +5885,6 @@ Transform:
   - {fileID: 1527910159}
   - {fileID: 807297655}
   - {fileID: 1854823120}
-  - {fileID: 387491566}
   - {fileID: 1200856250368587092}
   - {fileID: 5675970706201512913}
   - {fileID: 5537940955893754924}
@@ -5924,6 +5923,7 @@ Transform:
   - {fileID: 1322314435090124364}
   - {fileID: 5425765049057085363}
   - {fileID: 3519198595662738546}
+  - {fileID: 387491566}
   m_Father: {fileID: 1876270719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048002862
@@ -19919,8 +19919,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1876270719}
+    m_TransformParent: {fileID: 1958511343}
     m_Modifications:
+    - target: {fileID: 34558483373844220, guid: 8262e8a7cf1e3ad489af712377578b8e, type: 3}
+      propertyPath: foodTag
+      value: Coffee
+      objectReference: {fileID: 0}
     - target: {fileID: 759980764730869940, guid: 8262e8a7cf1e3ad489af712377578b8e, type: 3}
       propertyPath: m_InteractionManager
       value: 
