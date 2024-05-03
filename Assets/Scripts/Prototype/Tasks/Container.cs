@@ -12,19 +12,26 @@ public class Container : TaskObject
     // Methods
     protected void Update()
     {
-        if (GetIfTaskCanBeDone())
+        // In case all the objects are inside
+        if (CheckIfObjectsAreInside())
         {
-            if(CheckIfObjectsAreInside())
+            if(GetIfTaskCanBeDone())
                 FinishTask();
         }
+        // In case all the objects are not inside
+        else
+            interactable = true;
     }
 
     protected bool CheckIfObjectsAreInside()
     {
-        bool result = false;
+        bool result = true;
 
-        // Code
+        foreach (ObjectToPlace objectToPlace in objectsToPlace)
+            result &= objectToPlace.placed;
 
         return result;
     }
+
+    public string GetTag() { return containerTag; }
 }
