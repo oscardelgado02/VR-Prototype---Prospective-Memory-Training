@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167755012794976345}
+  - component: {fileID: 1959882412860384240}
   - component: {fileID: 5456972080375136143}
   - component: {fileID: 4780555195284980940}
   - component: {fileID: 3984918184117064472}
   - component: {fileID: 5398715784695533714}
-  - component: {fileID: 1959882412860384240}
   - component: {fileID: 6029684538796303706}
   - component: {fileID: 1757278245665463839}
   m_Layer: 0
@@ -38,6 +38,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959882412860384240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462196245516979684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938b64c42400f0f4ebe24318140e4306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskId: 6
 --- !u!33 &5456972080375136143
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,19 +150,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6ad5a50c9bf71404f84ec7d006812e75, type: 3}
---- !u!114 &1959882412860384240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3462196245516979684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938b64c42400f0f4ebe24318140e4306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskId: 6
 --- !u!114 &6029684538796303706
 MonoBehaviour:
   m_ObjectHideFlags: 0

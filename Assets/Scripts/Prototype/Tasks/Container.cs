@@ -5,6 +5,8 @@ public class Container : TaskObject
 {
     // Attributes
     [SerializeField] protected List<ObjectToPlace> objectsToPlace;
+
+    [StringInList(typeof(PropertyDrawersHelper), "ContainerTagList")]
     [SerializeField] protected string containerTag;
 
     // Methods

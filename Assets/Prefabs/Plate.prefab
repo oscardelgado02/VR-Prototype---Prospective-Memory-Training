@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7844757603386504523}
+  - component: {fileID: 2441851579211997293}
   - component: {fileID: 4010648072579038254}
   - component: {fileID: 2920006067309860282}
   - component: {fileID: 7880816276649166319}
@@ -37,6 +38,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2441851579211997293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091194532796873317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326b6e00abe5270499fce1bc60afa994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: Plate
+  containerTag: Cupboard
 --- !u!33 &4010648072579038254
 MeshFilter:
   m_ObjectHideFlags: 0

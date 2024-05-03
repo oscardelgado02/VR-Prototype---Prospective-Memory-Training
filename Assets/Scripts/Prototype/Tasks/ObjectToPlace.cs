@@ -3,7 +3,10 @@ using UnityEngine;
 public class ObjectToPlace : MonoBehaviour
 {
     // Attributes
+    [StringInList(typeof(PropertyDrawersHelper), "ObjectTagList")]
     [SerializeField] private string objectTag;
-    [SerializeField] private string placeTag;
+
+    [StringInList(typeof(PropertyDrawersHelper), "ContainerTagList")]
+    [SerializeField] private string containerTag;
     public bool placed {  get; private set; }
 }

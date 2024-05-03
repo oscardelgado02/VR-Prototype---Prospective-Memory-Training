@@ -57,6 +57,18 @@ public sealed class labels
         "Task in list",
         "Time"
     };
+    public readonly string[] _objectTags = new string[]
+    {
+        "Shoe",
+        "Plate",
+        "Painting"
+    };
+    public readonly string[] _containerTags = new string[]
+    {
+        "Washing machine",
+        "Cupboard",
+        "Wall"
+    };
 }
 
 public sealed class gameStatus
