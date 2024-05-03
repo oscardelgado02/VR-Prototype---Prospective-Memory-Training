@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
         exitButton.onClick.AddListener(() => { Application.Quit(); });
     }
 
-    private void WipeAndCreateUISkeleton(int margins = 5, float spacing = 5f)
+    private void WipeAndCreateUISkeleton(int margins = 5, float spacing = 1f)
     {
         // Clear existing content
         foreach (Transform child in content)
@@ -216,28 +216,73 @@ public class UIManager : MonoBehaviour
             // We get the current task
             Task task = TaskList.Instance.GetTask(id);
 
-            // In case it is the learning phase
-            if(phaseId == phaseIds.learning)
-            {
-                // We instantiate a taskToDoText prefab and change its text
-                GameObject toDoText = Instantiate(taskToDoTextPrefab, content);
-                toDoText.GetComponent<TextMeshProUGUI>().text = $"{i+1}. {task.description}";
-            }
-            // In case it is the end phase
-            else if(phaseId == phaseIds.end)
-            {
-                // We instantiate a taskResultText prefab and change its text
-                GameObject resultText = Instantiate(taskResultTextPrefab, content);
-                resultText.GetComponent<TextMeshProUGUI>().text = $"{i+1}. {task.description}";
+            // In case it is the learning phase or the end phase
+            if(phaseId == phaseIds.learning || phaseId == phaseIds.end)
+                CreateTaskLine(phaseId, task, i);
+        }
+    }
 
+    // Function to create a task line
+    private void CreateTaskLine(phaseIds id, Task task, int iteration)
+    {
+        // We double check to make sure it is not called in any other side
+        if (id == phaseIds.learning || id == phaseIds.end)
+        {
+            // We instantiate a taskToDoText or a taskResultText prefab, depending on the phase, and change its text
+            GameObject text = (id == phaseIds.learning)
+                ?Instantiate(taskToDoTextPrefab, content):
+                Instantiate(taskResultTextPrefab, content);
+
+            TextMeshProUGUI textMesh = (id == phaseIds.learning)
+                ?text.GetComponent<TextMeshProUGUI>():
+                text.GetComponentInChildren<TextMeshProUGUI>();
+            textMesh.text = $"{iteration + 1}. {task.description}";
+
+            if(textMesh != null)
+            {
+                // We change the text size to adapt it to the number of lines it has
+                RectTransform rectTrans = text.GetComponent<RectTransform>();
+                rectTrans.rect.Set(rectTrans.rect.x,
+                    rectTrans.rect.y,
+                    rectTrans.rect.width,
+                    rectTrans.rect.height * CountVisibleLines(textMesh));
+            }            
+
+            if (id == phaseIds.end)
+            {
                 // We get the status object of the generated resultText
-                GameObject status = resultText.transform.GetChild(0).gameObject;
+                RawImage status = text.transform.GetComponentInChildren<RawImage>();
 
-                // We get the texture to assign to the status RawImage component
-                Texture texture = task.finished?completed.texture : notCompleted.texture;
-                status.GetComponent<RawImage>().texture = texture;
+                if (status != null)
+                {
+                    // We get the texture to assign to the status RawImage component
+                    Texture texture = task.finished ? completed.texture : notCompleted.texture;
+                    status.texture = texture;
+                }
             }
         }
+    }
+
+    // Function to count the number of visible lines in a TextMeshProUGUI component
+    private int CountVisibleLines(TextMeshProUGUI textMesh)
+    {
+        // Get the text container of the TextMeshProUGUI component
+        TMP_TextInfo textInfo = textMesh.textInfo;
+
+        int lineCount = 0;
+
+        // Iterate through each character in the text
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            // Check if the character is the first character of a new line
+            if (textInfo.characterInfo[i].isVisible && textInfo.characterInfo[i].lineNumber > lineCount)
+            {
+                lineCount++;
+            }
+        }
+
+        // Return the number of visible lines
+        return lineCount + 1; // Add 1 because line numbers are zero-based
     }
 
     private void ShowExitButton()
