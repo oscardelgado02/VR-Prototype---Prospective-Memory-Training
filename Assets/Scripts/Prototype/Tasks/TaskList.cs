@@ -45,7 +45,7 @@ public sealed class TaskList
     {
         tasks = new List<Task>();
 
-        for(int i = 0; i < labels.Instance._taskLabels.Count; i++)
+        for(int i = 0; i < labels.Instance._taskLabels.Length; i++)
             tasks.Add(new Task(i, labels.Instance._taskLabels[i]));
     }
 

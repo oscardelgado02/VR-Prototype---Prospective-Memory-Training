@@ -3,10 +3,13 @@ using UnityEngine;
 public class TaskObject : MonoBehaviour
 {
     // Attributes
-    [SerializeField] public int taskId {  get; protected set; }
+    [StringInList(typeof(PropertyDrawersHelper), "TaskList")]
+    [SerializeField] protected int taskId;
+
     protected bool interactable = true;
 
     // Methods
+    public int GetID() { return taskId; }
     protected void FinishTask()
     {
         if (interactable)

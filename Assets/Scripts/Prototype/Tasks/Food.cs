@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Food : TaskObject
 {
-    // Attributes
-    [SerializeField] private string foodTag;
-
     // Methods
     private void EatFood()
     {
