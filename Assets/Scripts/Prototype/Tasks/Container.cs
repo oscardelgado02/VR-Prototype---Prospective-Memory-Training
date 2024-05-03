@@ -20,7 +20,10 @@ public class Container : TaskObject
         }
         // In case all the objects are not inside
         else
-            interactable = true;
+        {
+            TaskList.Instance.GetTask(taskId).finished = false;  // Set the task as not finished
+            interactable = true;   // Make the object interactable
+        }
     }
 
     protected bool CheckIfObjectsAreInside()
