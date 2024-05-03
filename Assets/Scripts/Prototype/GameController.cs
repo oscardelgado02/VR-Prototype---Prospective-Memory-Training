@@ -73,7 +73,7 @@ public sealed class RandomNumberGenerator
 {
     public static List<int> GenerateRandomNumbers(int maxNumber, int outputNumbers)
     {
-        List<int> numbers = Enumerable.Range(0, maxNumber + 1).ToList(); // Creates a list of integers from 0 to maxNumber
+        List<int> numbers = Enumerable.Range(0, maxNumber).ToList(); // Creates a list of integers from 0 to maxNumber
 
         // Shuffle the list
         numbers = Shuffle(numbers);

@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
         exitButton.onClick.AddListener(() => { Application.Quit(); });
     }
 
-    private void WipeAndCreateUISkeleton(int margins = 50, float spacing = 30f)
+    private void WipeAndCreateUISkeleton(int margins = 5, float spacing = 5f)
     {
         // Clear existing content
         foreach (Transform child in content)
