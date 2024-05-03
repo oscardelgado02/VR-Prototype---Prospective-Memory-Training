@@ -129,6 +129,10 @@ public sealed class CSV_Export
     {
         if (Settings.Instance.enableDataExtraction)
         {
+            // We add the lines of the tasks that we needed to do but were not completed
+            foreach(int taskId in gameStatus.Instance.selectedTasksId)
+                if(!TaskList.Instance.GetTask(taskId).finished) WriteTaskFinishedLine(taskId);
+
             // We open the Text Writer
             TextWriter tw = new StreamWriter(fileDirectory, false);
 

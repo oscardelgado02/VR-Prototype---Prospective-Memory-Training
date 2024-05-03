@@ -101,7 +101,6 @@ public class BoardInteraction : MonoBehaviour
             {
                 // Calculate the hit point's position relative to the slider's transform
                 Vector3 hitPointLocal = slider.transform.InverseTransformPoint(hit.point);
-                Debug.Log(hitPointLocal);
 
                 // Calculate the normalized value based on the hit point, considering the entire range of the slider
                 float sliderWidth = slider.gameObject.GetComponent<RectTransform>().rect.width;
