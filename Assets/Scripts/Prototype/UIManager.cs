@@ -68,7 +68,12 @@ public class UIManager : MonoBehaviour
 
         // If the UI is going to change to the To Do Task List UI or the End UI, then generate the Tasks instances
         if (phaseId == phaseIds.learning || phaseId == phaseIds.end)
+        {
+            content.gameObject.SetActive(true); // We show the list content
             GenerateTaskListUI(phaseId);
+        }
+        else
+            content.gameObject.SetActive(false);    // We hide the list content
     }
 
     private void Start()
@@ -163,25 +168,11 @@ public class UIManager : MonoBehaviour
 
     private void WipeAndCreateUISkeleton(int margins = 50, float spacing = 30f)
     {
-        //// Add CanvasScaler to the canvas
-        //CanvasScaler canvasScaler = canvas.gameObject.GetComponent<CanvasScaler>();
-        //if (canvasScaler == null)
-        //{
-        //    canvasScaler = canvas.gameObject.AddComponent<CanvasScaler>();
-        //}
-
-        //// You may need to adjust CanvasScaler settings based on your requirements
-        //canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        //canvasScaler.referenceResolution = new Vector2(1920, 1080);
-
         // Clear existing content
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);
         }
-
-        //Adjust the content to the top
-        content.position = new Vector2(0, 0);
 
         // Add a layout group to the content
         VerticalLayoutGroup layoutGroup = content.gameObject.GetComponent<VerticalLayoutGroup>();
@@ -230,14 +221,14 @@ public class UIManager : MonoBehaviour
             {
                 // We instantiate a taskToDoText prefab and change its text
                 GameObject toDoText = Instantiate(taskToDoTextPrefab, content);
-                toDoText.GetComponent<TextMeshProUGUI>().text = $"{i}. {task.description}";
+                toDoText.GetComponent<TextMeshProUGUI>().text = $"{i+1}. {task.description}";
             }
             // In case it is the end phase
             else if(phaseId == phaseIds.end)
             {
                 // We instantiate a taskResultText prefab and change its text
                 GameObject resultText = Instantiate(taskResultTextPrefab, content);
-                resultText.GetComponent<TextMeshProUGUI>().text = $"{i}. {task.description}";
+                resultText.GetComponent<TextMeshProUGUI>().text = $"{i+1}. {task.description}";
 
                 // We get the status object of the generated resultText
                 GameObject status = resultText.transform.GetChild(0).gameObject;
