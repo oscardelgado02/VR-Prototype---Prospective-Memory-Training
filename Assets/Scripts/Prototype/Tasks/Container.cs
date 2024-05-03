@@ -12,7 +12,7 @@ public class Container : TaskObject
     // Methods
     protected void Update()
     {
-        if (interactable)
+        if (GetIfTaskCanBeDone())
         {
             if(CheckIfObjectsAreInside())
                 FinishTask();
