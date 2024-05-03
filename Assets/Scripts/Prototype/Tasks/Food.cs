@@ -5,7 +5,7 @@ public class Food : TaskObject
     // Methods
     private void EatFood()
     {
-        if (interactable)
+        if (GetIfTaskCanBeDone())
         {
             FinishTask();
 

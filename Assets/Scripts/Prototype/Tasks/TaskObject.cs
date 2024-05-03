@@ -10,9 +10,10 @@ public class TaskObject : MonoBehaviour
 
     // Methods
     public int GetID() { return taskId; }
+    protected bool GetIfTaskCanBeDone() { return interactable && gameStatus.Instance.currPhaseId==phaseIds.doingTasks; }
     protected void FinishTask()
     {
-        if (interactable)
+        if (GetIfTaskCanBeDone())
         {
             TaskList.Instance.GetTask(taskId).finished = true;  // Finish the task
             interactable = false;   // This object is no longer interactable for tasks purposes
