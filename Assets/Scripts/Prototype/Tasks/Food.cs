@@ -7,9 +7,17 @@ public class Food : TaskObject
     {
         if (interactable)
         {
-            // Code
-
             FinishTask();
+
+            Destroy(gameObject);    // Destroy the fruit once it has been eaten
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag.Equals("HeadCollider"))
+        {
+            EatFood();
         }
     }
 }
