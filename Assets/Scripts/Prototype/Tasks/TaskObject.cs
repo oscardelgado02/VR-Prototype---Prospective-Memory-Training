@@ -17,6 +17,9 @@ public class TaskObject : MonoBehaviour
         {
             TaskList.Instance.GetTask(taskId).finished = true;  // Finish the task
             interactable = false;   // This object is no longer interactable for tasks purposes
+
+            // We send the data to the CSV extractor
+            CSV_Export.Instance.WriteTaskFinishedLine(taskId);
         }
     }
 }
