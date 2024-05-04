@@ -85,22 +85,30 @@ public class TeleportationController : MonoBehaviour
         {
             return;
         }
-        if (!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit))
+
+        // Perform raycast
+        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit))
         {
-            rayInteractor.enabled = false;
-            _teleportIsActive = false;
-            return;
+            // Check if the ray hits an object with the "Teleport" layer
+            if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Teleport"))
+            {
+                TeleportRequest teleportRequest = new TeleportRequest()
+                {
+                    destinationPosition = raycastHit.point,
+                };
+
+                teleportationProvider.QueueTeleportRequest(teleportRequest);
+
+                rayInteractor.enabled = false;
+                _teleportIsActive = false;
+            }
+            // Check if the ray hits an object with the "Wall" layer or any other layer that should cancel teleport
+            else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                rayInteractor.enabled = false;
+                _teleportIsActive = false;
+            }
         }
-
-        TeleportRequest teleportRequest = new TeleportRequest()
-        {
-            destinationPosition = raycastHit.point,
-        };
-
-        teleportationProvider.QueueTeleportRequest(teleportRequest);
-
-        rayInteractor.enabled = false;
-        _teleportIsActive = false;
     }
 
     //This is called when our Teleport Mode Activated action map is triggered
