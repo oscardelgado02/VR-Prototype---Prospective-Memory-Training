@@ -6,12 +6,16 @@ public class GameController : MonoBehaviour
 {
     // Attributes
     [SerializeField] private UIManager _uiManager;
+    [SerializeField] private List<Collider> _roomDoorHandles;
 
     // Methods
     private void Start()
     {
         // Write a line in the CSV Export system to indicate that the modifying settings phase started
         CSV_Export.Instance.WriteStartPhaseLine(gameStatus.Instance.currPhaseId);
+
+        // We set the handles as disabled
+        ChangeRoomDoorHandlesInteraction(false);
     }
 
     public void StartNextPhase(phaseIds nextId)
@@ -31,8 +35,9 @@ public class GameController : MonoBehaviour
                 SetTasksToDo();
                 break;
 
-            //case phaseIds.doingTasks:
-            //    break;
+            case phaseIds.doingTasks:
+                ChangeRoomDoorHandlesInteraction(true); // Now the door can be opened
+                break;
 
             case phaseIds.end:
                 generateCSVFile = true;
@@ -66,6 +71,12 @@ public class GameController : MonoBehaviour
 
         // We save the selected ids in the gameStatus singleton class
         gameStatus.Instance.selectedTasksId = tasksToDoIds;
+    }
+
+    private void ChangeRoomDoorHandlesInteraction(bool status)
+    {
+        foreach(Collider handle in _roomDoorHandles)
+            handle.enabled = status;
     }
 }
 
