@@ -103,7 +103,9 @@ public class TeleportationController : MonoBehaviour
                 _teleportIsActive = false;
             }
             // Check if the ray hits an object with the "Wall" layer or any other layer that should cancel teleport
-            else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall")
+                || raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")
+                || raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("NonInteractable"))
             {
                 rayInteractor.enabled = false;
                 _teleportIsActive = false;
