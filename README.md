@@ -6,9 +6,9 @@
  [UML Diagram](https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training/blob/main/Prospective%20Memory%20Training%20UML.png)
 
 ## Controls
-- Grab Object/Door: Grip Button
-- Select option in the UI: Trigger Button
-- Teleport: Hold the Right Controller Thumbstick forward, point to the location you want to teleport, and then release
+- *Grab Object/Door*: Grip Button
+- *Select option in the UI*: Trigger Button
+- *Teleport*: Hold the Right Controller Thumbstick forward, point to the location you want to teleport, and then release
 
 ## License
 
