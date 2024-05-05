@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3987224246761696196}
   - component: {fileID: 774072832926252669}
   - component: {fileID: 8082381720639186576}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6182284051464668125}
   - component: {fileID: 8046001377818754807}
   - component: {fileID: 3018862374334011935}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: laptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8833733362664443137}
   - component: {fileID: 739759800346926300}
   - component: {fileID: 7552870403181828130}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Laptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 1821315993753150790}
   - component: {fileID: 7599682938590970221}
   - component: {fileID: 2633883976506601463}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ScreenCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 674288811395663977}
   - component: {fileID: 4462415755754485821}
   - component: {fileID: 8981374308303527588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EmailScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 6592078947228953170}
   - component: {fileID: 6639400879871295772}
   - component: {fileID: 6015845914189895931}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SentScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

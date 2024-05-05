@@ -18,9 +18,9 @@ TagManager:
   - Wall
   - Interactable
   - NonInteractable
-  - 
-  - 
-  - 
+  - Hands
+  - HandsGrabbingObject
+  - TaskInteractable
   - 
   - 
   - 

@@ -399,7 +399,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 6643841209117629917}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -888,7 +888,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 804137400357933693}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -1347,6 +1347,8 @@ Transform:
   - {fileID: 2135317011}
   - {fileID: 1041786282}
   - {fileID: 806855711}
+  - {fileID: 804137400357933693}
+  - {fileID: 6643841209117629917}
   m_Father: {fileID: 1340198866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &387491566 stripped
@@ -2492,7 +2494,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6643841209117629917}
   - {fileID: 167311967}
   - {fileID: 1470090259}
   - {fileID: 402476722}
@@ -3097,7 +3098,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 804137400357933693}
   - {fileID: 232624533}
   - {fileID: 1751052806}
   m_Father: {fileID: 341734947}
@@ -4852,7 +4852,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 2
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 6643841209117629917}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -4922,7 +4922,7 @@ MonoBehaviour:
   m_LineType: 1
   m_BlendVisualLinePoints: 1
   m_MaxRaycastDistance: 30
-  m_RayOriginTransform: {fileID: 0}
+  m_RayOriginTransform: {fileID: 6643841209117629917}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 6
   m_Acceleration: 9.8
@@ -18713,10 +18713,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804137400357933693}
+  - component: {fileID: 804137400357933698}
   - component: {fileID: 804137400357933695}
   - component: {fileID: 804137400357933694}
-  m_Layer: 0
-  m_Name: left_quest2_mesh
+  - component: {fileID: 804137400357933697}
+  - component: {fileID: 804137400357933696}
+  m_Layer: 10
+  m_Name: LeftPhysicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18972,12 +18975,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179337530684587966}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1041786282}
+  m_Father: {fileID: 341734947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &804137400357933694
 MeshRenderer:
@@ -19029,6 +19032,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179337530684587966}
   m_Mesh: {fileID: -4708986339593794676, guid: 669fe0094a7a8b1418988e1f48dea03e, type: 3}
+--- !u!54 &804137400357933696
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179337530684587966}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &804137400357933697
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179337530684587966}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4708986339593794676, guid: 669fe0094a7a8b1418988e1f48dea03e, type: 3}
+--- !u!114 &804137400357933698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179337530684587966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372306e0ba3c5874bb987ea5e68f03fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedTransform: {fileID: 1041786282}
+  body: {fileID: 804137400357933696}
+  interactor: {fileID: 232624534}
+  grabbingObject: 0
+  positionStrength: 20
+  positionThreshold: 0.005
+  maxDistance: 1
+  rotationStrength: 30
+  rotationThreshold: 10
 --- !u!4 &1200856250368587092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3387000883680435238, guid: 208292fed9ed8954cb9db845bac62b84, type: 3}
@@ -19532,10 +19605,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6643841209117629917}
+  - component: {fileID: 6643841209117629922}
   - component: {fileID: 6643841209117629919}
   - component: {fileID: 6643841209117629918}
-  m_Layer: 0
-  m_Name: right_quest2_mesh
+  - component: {fileID: 6643841209117629921}
+  - component: {fileID: 6643841209117629920}
+  m_Layer: 10
+  m_Name: RightPhysicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19690,12 +19766,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6126204402846682087}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 806855711}
+  m_Father: {fileID: 341734947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6643841209117629918
 MeshRenderer:
@@ -19747,6 +19823,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6126204402846682087}
   m_Mesh: {fileID: -2865166481821455227, guid: 669fe0094a7a8b1418988e1f48dea03e, type: 3}
+--- !u!54 &6643841209117629920
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126204402846682087}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &6643841209117629921
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126204402846682087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2865166481821455227, guid: 669fe0094a7a8b1418988e1f48dea03e, type: 3}
+--- !u!114 &6643841209117629922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126204402846682087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372306e0ba3c5874bb987ea5e68f03fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedTransform: {fileID: 806855711}
+  body: {fileID: 6643841209117629920}
+  interactor: {fileID: 167311968}
+  grabbingObject: 0
+  positionStrength: 20
+  positionThreshold: 0.005
+  maxDistance: 1
+  rotationStrength: 30
+  rotationThreshold: 10
 --- !u!4 &7067319526682079580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3679865737488624646, guid: 45baebf85aebda147b40f9e83cf6cd40, type: 3}
