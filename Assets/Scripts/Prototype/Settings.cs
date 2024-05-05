@@ -16,7 +16,7 @@ public sealed class Settings
     }
 
     // Debug Settings
-    public bool enableDataExtraction = false;    // Variable to extract data from the game
+    public bool enableDataExtraction = true;    // Variable to extract data from the game
 
     // Settings
     public int numOfTasksToDo = 3;

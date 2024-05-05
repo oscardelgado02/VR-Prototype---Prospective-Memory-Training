@@ -15,21 +15,52 @@ public class PhysicsHand : MonoBehaviour
     [SerializeField] private float rotationStrength = 30;
     [SerializeField] private float rotationThreshold = 10f;
 
-    [SerializeField] private string defaultLayerName = "Hands";
-    [SerializeField] private string grabbingLayerName = "HandsGrabbingObject";
-    private bool grabbingObject = false;    // bool to check if an object is being grabbed
+    // List of layers from objects that can be grabbed
+    [SerializeField] private List<string> defaultObjectLayers = new List<string>
+    {
+        "Interactable",
+        "TaskInteractable"
+    };
+
+    // List of layers that will replace the objects that can be grabbed layers
+    [SerializeField] private List<string> grabbedObjectLayers = new List<string>
+    {
+        "GrabbedInteractable",
+        "GrabbedTaskInteractable"
+    };
 
     private void Start()
     {
-        interactor.selectEntered.AddListener((SelectEnterEventArgs args) => grabbingObject = true);
-        interactor.selectExited.AddListener((SelectExitEventArgs args) => grabbingObject = false);
+        // In case an object is grabbed
+        interactor.selectEntered.AddListener((SelectEnterEventArgs args) => 
+        {
+            GameObject grabbedObj = args.interactableObject.transform.gameObject;   // We get the GameObject of the grabbed object
+
+            // If the grabbedObj is inside one of the defaultObjectLayers,
+            // then we change it to its corresponding grabbedObjectLayers layer
+            for(int i = 0; i < defaultObjectLayers.Count; i++)
+            {
+                if (LayerMask.LayerToName(grabbedObj.layer).Equals(defaultObjectLayers[i]))
+                    grabbedObj.layer = LayerMask.NameToLayer(grabbedObjectLayers[i]);   // We change the layer
+            }
+        });
+
+        // In case an object is ungrabbed
+        interactor.selectExited.AddListener((SelectExitEventArgs args) =>
+        {
+            GameObject grabbedObj = args.interactableObject.transform.gameObject;   // We get the GameObject of the ungrabbed object
+
+            // If the grabbedObj is inside one of the grabbedObjectLayers,
+            // then we change it to its corresponding defaultObjectLayers layer
+            for (int i = 0; i < grabbedObjectLayers.Count; i++)
+            {
+                if (LayerMask.LayerToName(grabbedObj.layer).Equals(grabbedObjectLayers[i]))
+                    grabbedObj.layer = LayerMask.NameToLayer(defaultObjectLayers[i]);   // We change the layer
+            }
+        });
     }
     private void FixedUpdate()
     {
-        string layerName = grabbingObject ? grabbingLayerName : defaultLayerName;    // We get the layer name
-
-        gameObject.layer = LayerMask.NameToLayer(layerName);    // We change the layer
-
         // Rest of the script
         var distance = Vector3.Distance(trackedTransform.position, body.position);
         if (distance > maxDistance || distance < positionThreshold)
