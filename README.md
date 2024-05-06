@@ -4,6 +4,8 @@
  [Requirements Document](https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training/blob/main/Prospective%20Memory%20Training%20Requirements%20Document.pdf)
  <br>
  [UML Diagram](https://github.com/oscardelgado02/VR-Prototype---Prospective-Memory-Training/blob/main/Prospective%20Memory%20Training%20UML.png)
+ [Video of an example session](https://youtu.be/p_75nYF7GBM)
+ [Video of all the tasks](https://youtu.be/P7419KwnZ5Y)
 
 ## Controls
 - **Grab Object/Door**: Grip Button
