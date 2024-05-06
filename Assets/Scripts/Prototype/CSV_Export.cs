@@ -77,9 +77,6 @@ public sealed class CSV_Export
         // We init the DataRowEvents list
         events_data_rows = new List<DataRowEvent>();
 
-        // We init the folders and the filename where data will be stored
-        InitFilenames();
-
         // We get the timer ID
         if (timer < 0)
             timer = Timers.Instance.CreateTimer();
@@ -129,8 +126,11 @@ public sealed class CSV_Export
     {
         if (Settings.Instance.enableDataExtraction)
         {
+            // We init the folders and the filename where data will be stored
+            InitFilenames();
+
             // We add the lines of the tasks that we needed to do but were not completed
-            foreach(int taskId in gameStatus.Instance.selectedTasksId)
+            foreach (int taskId in gameStatus.Instance.selectedTasksId)
                 if(!TaskList.Instance.GetTask(taskId).finished) WriteTaskFinishedLine(taskId);
 
             // We open the Text Writer
