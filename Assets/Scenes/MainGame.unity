@@ -19058,7 +19058,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &804137400357933697
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19096,12 +19096,17 @@ MonoBehaviour:
   trackedTransform: {fileID: 1041786282}
   body: {fileID: 804137400357933696}
   interactor: {fileID: 232624534}
-  grabbingObject: 0
   positionStrength: 20
   positionThreshold: 0.005
   maxDistance: 1
   rotationStrength: 30
   rotationThreshold: 10
+  defaultObjectLayers:
+  - Interactable
+  - TaskInteractable
+  grabbedObjectLayers:
+  - GrabbedInteractable
+  - GrabbedTaskInteractable
 --- !u!4 &1200856250368587092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3387000883680435238, guid: 208292fed9ed8954cb9db845bac62b84, type: 3}
@@ -19849,7 +19854,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &6643841209117629921
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19887,12 +19892,17 @@ MonoBehaviour:
   trackedTransform: {fileID: 806855711}
   body: {fileID: 6643841209117629920}
   interactor: {fileID: 167311968}
-  grabbingObject: 0
   positionStrength: 20
   positionThreshold: 0.005
   maxDistance: 1
   rotationStrength: 30
   rotationThreshold: 10
+  defaultObjectLayers:
+  - Interactable
+  - TaskInteractable
+  grabbedObjectLayers:
+  - GrabbedInteractable
+  - GrabbedTaskInteractable
 --- !u!4 &7067319526682079580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3679865737488624646, guid: 45baebf85aebda147b40f9e83cf6cd40, type: 3}

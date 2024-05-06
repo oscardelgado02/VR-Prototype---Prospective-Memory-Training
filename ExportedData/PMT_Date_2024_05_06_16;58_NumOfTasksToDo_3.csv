@@ -1,0 +1,16 @@
+Event,Phase,Task ID,Task description,Task completed by the user,Task in list,Time
+Start,Modifying Settings,NaN,NaN,NaN,NaN,0
+End,Modifying Settings,NaN,NaN,NaN,NaN,2.982779
+Start,Learning,NaN,NaN,NaN,NaN,2.982779
+End,Learning,NaN,NaN,NaN,NaN,3.706712
+Start,Doing Tasks,NaN,NaN,NaN,NaN,3.706712
+Task Finished,Doing Tasks,4,Drink the coffee that is above the dishwasher,Completed,No,110.6764
+Task Finished,Doing Tasks,3,Put the painting on the wall between the wardrobe and the bathroom door.,Completed,No,129.5758
+Task Finished,Doing Tasks,2,Grab the plates that are on the kitchen table and store them in the cupboard next to the fridge.,Completed,No,157.0752
+Task Finished,Doing Tasks,6,Eat the apple that is inside the fridge,Completed,No,169.7396
+Task Finished,Doing Tasks,5,Eat the lemon that is inside the fridge,Completed,No,171.6999
+Task Finished,Doing Tasks,7,Eat the watermelon that is inside the fridge,Completed,No,172.8916
+Task Finished,Doing Tasks,1,Grab the shoes next to the sofa and put them inside the washing machine.,Completed,No,186.3906
+Task Finished,Doing Tasks,0,Tap the laptop to send an email.,Completed,Yes,194.2311
+End,Doing Tasks,NaN,NaN,NaN,NaN,200.7792
+Start,End,NaN,NaN,NaN,NaN,200.7792

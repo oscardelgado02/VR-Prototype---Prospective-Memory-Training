@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2441851579211997293}
   - component: {fileID: 4010648072579038254}
   - component: {fileID: 2920006067309860282}
-  - component: {fileID: 7880816276649166319}
+  - component: {fileID: 3131093674508970694}
   - component: {fileID: 3663894663485265836}
   - component: {fileID: 6411274967169351504}
   - component: {fileID: 5436340577981328454}
@@ -102,7 +102,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7880816276649166319
+--- !u!64 &3131093674508970694
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &6411274967169351504
 MonoBehaviour:
   m_ObjectHideFlags: 0
