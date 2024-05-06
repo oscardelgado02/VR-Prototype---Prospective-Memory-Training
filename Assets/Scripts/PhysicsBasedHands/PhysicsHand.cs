@@ -41,7 +41,7 @@ public class PhysicsHand : MonoBehaviour
             for(int i = 0; i < defaultObjectLayers.Count; i++)
             {
                 if (LayerMask.LayerToName(grabbedObj.layer).Equals(defaultObjectLayers[i]))
-                    grabbedObj.layer = LayerMask.NameToLayer(grabbedObjectLayers[i]);   // We change the layer
+                    ChangeLayerToObjAndChildren(grabbedObj, grabbedObjectLayers[i]);    // We change the layer
             }
         });
 
@@ -55,10 +55,26 @@ public class PhysicsHand : MonoBehaviour
             for (int i = 0; i < grabbedObjectLayers.Count; i++)
             {
                 if (LayerMask.LayerToName(grabbedObj.layer).Equals(grabbedObjectLayers[i]))
-                    grabbedObj.layer = LayerMask.NameToLayer(defaultObjectLayers[i]);   // We change the layer
+                    ChangeLayerToObjAndChildren(grabbedObj, defaultObjectLayers[i]);    // We change the layer
             }
         });
     }
+
+    private void ChangeLayerToObjAndChildren(GameObject obj, string inputLayer)
+    {
+        obj.layer = LayerMask.NameToLayer(inputLayer);   // We change the layer
+
+        foreach (Transform child in obj.transform) {
+            child.gameObject.layer = LayerMask.NameToLayer(inputLayer);   // We change the layer
+
+            // If the child has children, recursively change their layers
+            if (child.childCount > 0)
+            {
+                ChangeLayerToObjAndChildren(child.gameObject, inputLayer);
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         // Rest of the script
