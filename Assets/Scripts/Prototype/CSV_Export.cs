@@ -88,7 +88,7 @@ public sealed class CSV_Export
     private void InitFilenames()
     {
         // Get the parent directory of the application path
-        string parentDirectory = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+        string parentDirectory = Path.GetFullPath(Path.Combine(Application.persistentDataPath, ".."));
 
         // We create the directory folder
         string folder = Path.Combine(parentDirectory, "ExportedData");
@@ -135,6 +135,7 @@ public sealed class CSV_Export
 
             // We open the Text Writer
             TextWriter tw = new StreamWriter(fileDirectory, false);
+
 
             // We create the headers string
             string headers = string.Empty;
