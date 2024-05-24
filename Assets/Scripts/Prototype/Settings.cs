@@ -20,4 +20,7 @@ public sealed class Settings
 
     // Settings
     public int numOfTasksToDo = 3;
+
+    // Language
+    public language lang = language.english;
 }
