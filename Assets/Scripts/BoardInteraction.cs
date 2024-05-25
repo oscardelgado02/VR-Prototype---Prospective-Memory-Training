@@ -32,12 +32,12 @@ public class BoardInteraction : MonoBehaviour
             // On Trigger Down
             if (leftTrigger && !previousLeftTriggerState)
             {
-                TryInteractWithButton(controllerTransformLeft);
+                OnTriggerDown(controllerTransformLeft);
             }
             // Hold trigger
             else if (leftTrigger)
             {
-                TryInteractWithSlider(controllerTransformLeft);
+                OnTriggerHold(controllerTransformLeft);
             }
         }
 
@@ -47,12 +47,12 @@ public class BoardInteraction : MonoBehaviour
             // On Trigger Down
             if (rightTrigger && !previousRightTriggerState)
             {
-                TryInteractWithButton(controllerTransformRight);
+                OnTriggerDown(controllerTransformRight);
             }
             // Hold trigger
             else if (rightTrigger)
             {
-                TryInteractWithSlider(controllerTransformRight);
+                OnTriggerHold(controllerTransformRight);
             }
         }
 
@@ -73,6 +73,20 @@ public class BoardInteraction : MonoBehaviour
         {
             lineRenderer.enabled = false;
         }
+    }
+
+    // On Key Down
+    private void OnTriggerDown(Transform controllerTransform)
+    {
+        TryInteractWithDropdownItem(controllerTransform);
+        TryInteractWithDropdown(controllerTransform);
+        TryInteractWithButton(controllerTransform);
+    }
+
+    // On Key Hold
+    private void OnTriggerHold(Transform controllerTransform)
+    {
+        TryInteractWithSlider(controllerTransform);
     }
 
     private void TryInteractWithButton(Transform controllerTransform)
@@ -108,6 +122,61 @@ public class BoardInteraction : MonoBehaviour
 
                 // Set the slider value considering the entire range
                 slider.value = Mathf.Lerp(slider.minValue, slider.maxValue, normalizedValue);
+            }
+        }
+    }
+
+    private void TryInteractWithDropdown(Transform controllerTransform)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit, interactionDistance))
+        {
+            // Check if the hit component is a Dropdown
+            TMP_Dropdown dropdown = hit.collider.GetComponent<TMP_Dropdown>();
+            if (dropdown != null)
+            {
+                // Check if the dropdown is already open
+                bool wasExpanded = dropdown.IsExpanded;
+
+                // If not open, simulate a click event on the dropdown to open it
+                if (!wasExpanded)
+                {
+                    dropdown.Show();
+                }
+                else
+                {
+                    // Hide it otherwise
+                    dropdown.Hide();
+                }
+            }
+        }
+    }
+
+    private void TryInteractWithDropdownItem(Transform controllerTransform)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit, interactionDistance))
+        {
+            // Check if the hit component is a Toggle
+            Toggle toggle = hit.collider.GetComponent<Toggle>();
+            if (toggle != null)
+            {
+                // Find the parent dropdown of the toggle
+                TMP_Dropdown dropdown = toggle.GetComponentInParent<TMP_Dropdown>();
+                if (dropdown != null)
+                {
+                    // Find the corresponding dropdown option by text
+                    TMP_Dropdown.OptionData optionData = dropdown.options.Find(option => option.text == toggle.GetComponentInChildren<TextMeshProUGUI>().text);
+                    if (optionData != null)
+                    {
+                        // Set the selected option of the dropdown
+                        dropdown.value = dropdown.options.IndexOf(optionData);
+                        // Trigger the selection event of the dropdown
+                        dropdown.onValueChanged.Invoke(dropdown.value);
+                        // Hide the dropdown
+                        dropdown.Hide();
+                    }
+                }
             }
         }
     }
